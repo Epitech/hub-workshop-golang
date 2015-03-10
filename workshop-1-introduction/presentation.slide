@@ -1,0 +1,22 @@
+Présentation du langage Go
+Pour le Hub d'innovation
+18 Mar 2015
+
+Vincent Neel
+vincent.neel@epitech.eu
+https://github.com/Epitech/golang-workshop
+
+* Présentation
+
+Si Go vous inspire :
+
+- Cette présentation sera sur github : https://github.com/Epitech/golang-workshop
+- Il y a un [[http://tour.golang.org/][tour]] interactif
+- Pleins de [[http://www.youtube.com/results?search_query=golang][vidéos]] et de [[http://research.swtch.com/gotour][screencasts]].
+
+* Go, c'est quoi ?
+
+- Langage développé par Google en 2009
+- Complètement Open-Source
+- Version stable (1.0) sorti en 2012
+- Syntaxe différente du C
