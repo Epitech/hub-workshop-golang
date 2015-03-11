@@ -10,9 +10,11 @@ https://github.com/Epitech/golang-workshop
 
 Si Go vous inspire :
 
-- Cette présentation sera sur github : https://github.com/Epitech/golang-workshop
+- Cette présentation sera sur github : [[https://github.com/Epitech/golang-workshop][https://github.com/Epitech/golang-workshop]]
 - Il y a un [[http://tour.golang.org/][tour]] interactif
 - Pleins de [[http://www.youtube.com/results?search_query=golang][vidéos]] et de [[http://research.swtch.com/gotour][screencasts]].
+
+.image images/gopher.png
 
 * Go, c'est quoi ?
 
@@ -20,12 +22,23 @@ Si Go vous inspire :
 - Complètement Open-Source
 - Version stable (1.0) sorti en 2012
 
+
 * Installation
 
-- Télécharger la dernière version de Go : https://golang.org/dl
+- Téléchargez la dernière version de Go : [[https://golang.org/dl][https://play.golang.org/dl]]
 - L'installer
 - Mettre la variable d'environnement GOPATH (par exemple C:\Users\Vincent\goprojects ou /users/vincent/goprojects)
+- Dans le dossier goprojects, créez un dossier src et dedans un dossier introduction
+- Codez avec Sublime Text, Intellij, Emacs, Vim, Bloc-notes...
+
+.image images/workshop1/1.png
 
 * Premier programme
 
-.play -edit hello.go
+.play hello.go
+
+- Créez un fichier hello.go dans le dossier introduction
+- Installez le avec go install introduction
+- Lancez le (il est dans le dossier $GOPATH/bin)
+
+*
