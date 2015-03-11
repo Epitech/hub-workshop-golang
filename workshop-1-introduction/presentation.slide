@@ -19,4 +19,13 @@ Si Go vous inspire :
 - Langage développé par Google en 2009
 - Complètement Open-Source
 - Version stable (1.0) sorti en 2012
-- Syntaxe différente du C
+
+* Installation
+
+- Télécharger la dernière version de Go : https://golang.org/dl
+- L'installer
+- Mettre la variable d'environnement GOPATH (par exemple C:\Users\Vincent\goprojects ou /users/vincent/goprojects)
+
+* Premier programme
+
+.play -edit hello.go
