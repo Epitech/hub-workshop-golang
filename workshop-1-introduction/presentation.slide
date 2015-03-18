@@ -41,3 +41,22 @@ Si Go vous inspire :
 
 * Premier programme
 .play hello.go
+
+* Déclaration de variables
+.code variables.go /^func main/,/^}/
+
+* Variables
+- int (8, 16, 32, 64)
+- uint (8, 16, 32, 64)
+- float (32, 64)
+- string
+- map
+- interface
+- struct
+- chan
+
+* Structures de controles
+.code control.go /^func condition/,/^}/
+
+* Structures de controles
+.play control.go /^func main/,/^}/
