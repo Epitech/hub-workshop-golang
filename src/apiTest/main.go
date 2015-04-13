@@ -1,37 +1,55 @@
 package main
 
 import (
-    "github.com/gorilla/pat"
-    "net/http"
     "encoding/json"
+    "github.com/gorilla/pat"
+    "gopkg.in/mgo.v2"
+    "net/http"
 )
-type Article struct {
-    Titre       string
-    Description string
+
+var (
+    sessionMongo *mgo.Session
+)
+
+const (
+    dbName            = "apiTest"
+    articleCollection = "articles"
+)
+
+func init() {
+    var err error
+    if sessionMongo, err = mgo.Dial("localhost"); err != nil {
+        panic(err)
+    }
 }
-func ArticlesHandler(w http.ResponseWriter, r *http.Request) {
-    r.Form.Get()
-    article1 := &Article{
-        Titre:       "C'est la fin du monde",
-        Description: "C'est une courte description de l'article",
-    }
-    article2 := &Article{
-        Titre:       "C'est plus la fin du monde",
-        Description: "C'est aussi une courte description",
-    }
-    articles := make([]*Article, 2)
-    articles[0] = article1
-    articles[1] = article2
-    jsonArticles, err := json.MarshalIndent(articles, "", "  ")
-    if err != nil {
-        w.Write([]byte("Erreur"))
+
+type Article struct {
+    Titre       string `json:"title" bson:"title"`
+    Description string `json:"description" bson:"description"`
+    Author      string `json:"author,omitempty"`
+}
+
+func GetArticlesHandler(w http.ResponseWriter, r *http.Request) {
+    articles := make([]*Article, 0)
+    if err := sessionMongo.DB(dbName).C(articleCollection).Find(nil).All(&articles); err != nil {
+        w.Write([]byte(err.Error()))
         return
     }
-    w.Write(jsonArticles)
+    jsonData, err := json.MarshalIndent(articles, "", " ")
+    if err != nil {
+        w.Write([]byte(err.Error()))
+        return
+    }
+    w.Write(jsonData)
+}
+
+func AddArticleHandler(w http.ResponseWriter, r *http.Request) {
+
 }
 
 func main() {
     router := pat.New()
-    router.Get("/articles", ArticlesHandler)
+    router.Get("/articles", GetArticlesHandler)
+    router.Post("/articles", AddArticleHandler)
     http.ListenAndServe(":8080", router)
 }
